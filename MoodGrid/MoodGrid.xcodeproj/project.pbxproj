@@ -12,6 +12,11 @@
 		1EC8357C21894F1900D97595 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8357A21894F1900D97595 /* Main.storyboard */; };
 		1EC8357E21894F1C00D97595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8357D21894F1C00D97595 /* Assets.xcassets */; };
 		1EC8358121894F1C00D97595 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8357F21894F1C00D97595 /* LaunchScreen.storyboard */; };
+		1EC83589218B8B7C00D97595 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC83588218B8B7C00D97595 /* LoginViewController.swift */; };
+		1EC8358B218B8B9300D97595 /* NewAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8358A218B8B9300D97595 /* NewAccountViewController.swift */; };
+		1EC8358F218B8C8C00D97595 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8358E218B8C8C00D97595 /* SearchViewController.swift */; };
+		1EC83591218B8C9900D97595 /* BoardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC83590218B8C9900D97595 /* BoardsViewController.swift */; };
+		1EC83593218B8CBD00D97595 /* SelectedBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC83592218B8CBD00D97595 /* SelectedBoardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		1EC8357D21894F1C00D97595 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1EC8358021894F1C00D97595 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1EC8358221894F1C00D97595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1EC83588218B8B7C00D97595 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1EC8358A218B8B9300D97595 /* NewAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountViewController.swift; sourceTree = "<group>"; };
+		1EC8358E218B8C8C00D97595 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		1EC83590218B8C9900D97595 /* BoardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardsViewController.swift; sourceTree = "<group>"; };
+		1EC83592218B8CBD00D97595 /* SelectedBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBoardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +67,11 @@
 				1EC8357621894F1900D97595 /* AppDelegate.swift */,
 				1EC8357821894F1900D97595 /* ViewController.swift */,
 				1EC8357A21894F1900D97595 /* Main.storyboard */,
+				1EC8358E218B8C8C00D97595 /* SearchViewController.swift */,
+				1EC83590218B8C9900D97595 /* BoardsViewController.swift */,
+				1EC83592218B8CBD00D97595 /* SelectedBoardViewController.swift */,
+				1EC8358A218B8B9300D97595 /* NewAccountViewController.swift */,
+				1EC83588218B8B7C00D97595 /* LoginViewController.swift */,
 				1EC8357D21894F1C00D97595 /* Assets.xcassets */,
 				1EC8357F21894F1C00D97595 /* LaunchScreen.storyboard */,
 				1EC8358221894F1C00D97595 /* Info.plist */,
@@ -135,8 +150,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EC8358F218B8C8C00D97595 /* SearchViewController.swift in Sources */,
+				1EC83591218B8C9900D97595 /* BoardsViewController.swift in Sources */,
+				1EC83589218B8B7C00D97595 /* LoginViewController.swift in Sources */,
 				1EC8357921894F1900D97595 /* ViewController.swift in Sources */,
+				1EC83593218B8CBD00D97595 /* SelectedBoardViewController.swift in Sources */,
 				1EC8357721894F1900D97595 /* AppDelegate.swift in Sources */,
+				1EC8358B218B8B9300D97595 /* NewAccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
