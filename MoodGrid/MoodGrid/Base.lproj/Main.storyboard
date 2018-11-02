@@ -163,10 +163,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IEr-b2-5pc">
                                 <rect key="frame" x="168.5" y="440.5" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginTapped:" destination="Mmj-5i-lwK" eventType="touchUpInside" id="9ny-K9-eiu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6g-mr-uR2">
                                 <rect key="frame" x="161.5" y="485.5" width="52" height="30"/>
                                 <state key="normal" title="Sign up"/>
+                                <connections>
+                                    <action selector="signUpTapped:" destination="Mmj-5i-lwK" eventType="touchUpInside" id="pTY-0j-PSj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -195,6 +201,8 @@
                         <viewLayoutGuide key="safeArea" id="18B-WB-bqq"/>
                     </view>
                     <connections>
+                        <outlet property="passwordTextField" destination="Yve-uC-UaG" id="JTR-Sh-dJI"/>
+                        <outlet property="usernameTextField" destination="mSe-3n-oeN" id="NmT-uR-r27"/>
                         <segue destination="Ww5-0a-jEt" kind="show" identifier="ToNewAccount" id="9Bc-xi-fON"/>
                         <segue destination="Swq-Y2-Hmd" kind="show" identifier="LoginToTab" id="ly2-iB-tbe"/>
                     </connections>
@@ -380,6 +388,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="W4m-0Z-Dod"/>
+        <segue reference="ly2-iB-tbe"/>
     </inferredMetricsTieBreakers>
 </document>

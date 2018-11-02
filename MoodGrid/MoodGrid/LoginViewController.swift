@@ -7,16 +7,32 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
-
+    
+    //outlets
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
     }
     
-
+    @IBAction func loginTapped(_ sender: UIButton) {
+        //firebase authentication
+        Auth.auth().signIn(withEmail: usernameTextField.text!, password: passwordTextField.text!) { (result, error) in
+            
+        }
+    }
+    
+    @IBAction func signUpTapped(_ sender: UIButton) {
+        //perform segue
+        performSegue(withIdentifier: "ToNewAccount", sender: self)
+    }
+    
     /*
     // MARK: - Navigation
 
