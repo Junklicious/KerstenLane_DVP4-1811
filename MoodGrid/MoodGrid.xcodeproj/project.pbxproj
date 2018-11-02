@@ -17,6 +17,7 @@
 		1EC8358F218B8C8C00D97595 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8358E218B8C8C00D97595 /* SearchViewController.swift */; };
 		1EC83591218B8C9900D97595 /* BoardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC83590218B8C9900D97595 /* BoardsViewController.swift */; };
 		1EC83593218B8CBD00D97595 /* SelectedBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC83592218B8CBD00D97595 /* SelectedBoardViewController.swift */; };
+		1EC83595218BF57900D97595 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1EC83594218BF57800D97595 /* GoogleService-Info.plist */; };
 		A28332C86C718D1E3ED02F21 /* Pods_MoodGrid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51F0BE949B1899DD16DB3DB7 /* Pods_MoodGrid.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		1EC8358E218B8C8C00D97595 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		1EC83590218B8C9900D97595 /* BoardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardsViewController.swift; sourceTree = "<group>"; };
 		1EC83592218B8CBD00D97595 /* SelectedBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBoardViewController.swift; sourceTree = "<group>"; };
+		1EC83594218BF57800D97595 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		51F0BE949B1899DD16DB3DB7 /* Pods_MoodGrid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoodGrid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A287F3E351EA6D63E74DE8 /* Pods-MoodGrid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoodGrid.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoodGrid/Pods-MoodGrid.release.xcconfig"; sourceTree = "<group>"; };
 		F17EC3E4DFBD35F8E6EC3155 /* Pods-MoodGrid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoodGrid.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoodGrid/Pods-MoodGrid.debug.xcconfig"; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				1EC8357D21894F1C00D97595 /* Assets.xcassets */,
 				1EC8357F21894F1C00D97595 /* LaunchScreen.storyboard */,
 				1EC8358221894F1C00D97595 /* Info.plist */,
+				1EC83594218BF57800D97595 /* GoogleService-Info.plist */,
 			);
 			path = MoodGrid;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EC8358121894F1C00D97595 /* LaunchScreen.storyboard in Resources */,
+				1EC83595218BF57900D97595 /* GoogleService-Info.plist in Resources */,
 				1EC8357E21894F1C00D97595 /* Assets.xcassets in Resources */,
 				1EC8357C21894F1900D97595 /* Main.storyboard in Resources */,
 			);

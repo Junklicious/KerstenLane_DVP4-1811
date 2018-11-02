@@ -24,7 +24,12 @@ class LoginViewController: UIViewController {
     @IBAction func loginTapped(_ sender: UIButton) {
         //firebase authentication
         Auth.auth().signIn(withEmail: usernameTextField.text!, password: passwordTextField.text!) { (result, error) in
-            
+            if let errorExists = error {
+                print(errorExists.localizedDescription)
+            }
+            if let results = result {
+                print(results.description)
+            }
         }
     }
     
