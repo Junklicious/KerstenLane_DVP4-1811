@@ -17,6 +17,7 @@
 		1EC8358F218B8C8C00D97595 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8358E218B8C8C00D97595 /* SearchViewController.swift */; };
 		1EC83591218B8C9900D97595 /* BoardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC83590218B8C9900D97595 /* BoardsViewController.swift */; };
 		1EC83593218B8CBD00D97595 /* SelectedBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC83592218B8CBD00D97595 /* SelectedBoardViewController.swift */; };
+		A28332C86C718D1E3ED02F21 /* Pods_MoodGrid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51F0BE949B1899DD16DB3DB7 /* Pods_MoodGrid.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,9 @@
 		1EC8358E218B8C8C00D97595 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		1EC83590218B8C9900D97595 /* BoardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardsViewController.swift; sourceTree = "<group>"; };
 		1EC83592218B8CBD00D97595 /* SelectedBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBoardViewController.swift; sourceTree = "<group>"; };
+		51F0BE949B1899DD16DB3DB7 /* Pods_MoodGrid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoodGrid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		77A287F3E351EA6D63E74DE8 /* Pods-MoodGrid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoodGrid.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoodGrid/Pods-MoodGrid.release.xcconfig"; sourceTree = "<group>"; };
+		F17EC3E4DFBD35F8E6EC3155 /* Pods-MoodGrid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoodGrid.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoodGrid/Pods-MoodGrid.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A28332C86C718D1E3ED02F21 /* Pods_MoodGrid.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +55,8 @@
 			children = (
 				1EC8357521894F1900D97595 /* MoodGrid */,
 				1EC8357421894F1900D97595 /* Products */,
+				207CA9FAFC265F4A064C772F /* Pods */,
+				F247EBAF72376E6C2CF77D48 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +86,23 @@
 			path = MoodGrid;
 			sourceTree = "<group>";
 		};
+		207CA9FAFC265F4A064C772F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F17EC3E4DFBD35F8E6EC3155 /* Pods-MoodGrid.debug.xcconfig */,
+				77A287F3E351EA6D63E74DE8 /* Pods-MoodGrid.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F247EBAF72376E6C2CF77D48 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				51F0BE949B1899DD16DB3DB7 /* Pods_MoodGrid.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +110,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1EC8358521894F1C00D97595 /* Build configuration list for PBXNativeTarget "MoodGrid" */;
 			buildPhases = (
+				E4A28917E44E369E9CEFC2DE /* [CP] Check Pods Manifest.lock */,
 				1EC8356F21894F1900D97595 /* Sources */,
 				1EC8357021894F1900D97595 /* Frameworks */,
 				1EC8357121894F1900D97595 /* Resources */,
+				0629C4D9DFC35391C0F74034 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -144,6 +170,61 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0629C4D9DFC35391C0F74034 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MoodGrid/Pods-MoodGrid-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MoodGrid/Pods-MoodGrid-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4A28917E44E369E9CEFC2DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MoodGrid-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1EC8356F21894F1900D97595 /* Sources */ = {
@@ -300,6 +381,7 @@
 		};
 		1EC8358621894F1C00D97595 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F17EC3E4DFBD35F8E6EC3155 /* Pods-MoodGrid.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -317,6 +399,7 @@
 		};
 		1EC8358721894F1C00D97595 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77A287F3E351EA6D63E74DE8 /* Pods-MoodGrid.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
