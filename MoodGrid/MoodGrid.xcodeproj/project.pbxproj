@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E8717DF2190D09F00569DA6 /* PictureViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8717DD2190D09F00569DA6 /* PictureViewCell.swift */; };
+		1E8717E02190D09F00569DA6 /* PictureViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E8717DE2190D09F00569DA6 /* PictureViewCell.xib */; };
 		1EC8357721894F1900D97595 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8357621894F1900D97595 /* AppDelegate.swift */; };
 		1EC8357921894F1900D97595 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8357821894F1900D97595 /* ViewController.swift */; };
 		1EC8357C21894F1900D97595 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8357A21894F1900D97595 /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E8717DD2190D09F00569DA6 /* PictureViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureViewCell.swift; sourceTree = "<group>"; };
+		1E8717DE2190D09F00569DA6 /* PictureViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PictureViewCell.xib; sourceTree = "<group>"; };
 		1EC8357321894F1900D97595 /* MoodGrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodGrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC8357621894F1900D97595 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EC8357821894F1900D97595 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +86,8 @@
 				1EC83590218B8C9900D97595 /* BoardsViewController.swift */,
 				1EC83592218B8CBD00D97595 /* SelectedBoardViewController.swift */,
 				1EC8357D21894F1C00D97595 /* Assets.xcassets */,
+				1E8717DD2190D09F00569DA6 /* PictureViewCell.swift */,
+				1E8717DE2190D09F00569DA6 /* PictureViewCell.xib */,
 				1EC8357F21894F1C00D97595 /* LaunchScreen.storyboard */,
 				1EC8358221894F1C00D97595 /* Info.plist */,
 				1EC83594218BF57800D97595 /* GoogleService-Info.plist */,
@@ -168,6 +174,7 @@
 			files = (
 				1EC8358121894F1C00D97595 /* LaunchScreen.storyboard in Resources */,
 				1EC83595218BF57900D97595 /* GoogleService-Info.plist in Resources */,
+				1E8717E02190D09F00569DA6 /* PictureViewCell.xib in Resources */,
 				1EC8357E21894F1C00D97595 /* Assets.xcassets in Resources */,
 				1EC8357C21894F1900D97595 /* Main.storyboard in Resources */,
 			);
@@ -242,6 +249,7 @@
 				1EC83593218B8CBD00D97595 /* SelectedBoardViewController.swift in Sources */,
 				1EC8357721894F1900D97595 /* AppDelegate.swift in Sources */,
 				1EC8358B218B8B9300D97595 /* NewAccountViewController.swift in Sources */,
+				1E8717DF2190D09F00569DA6 /* PictureViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

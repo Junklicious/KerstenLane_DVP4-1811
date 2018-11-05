@@ -33,7 +33,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         //configure cell
         
-        
         return cell
     }
 
