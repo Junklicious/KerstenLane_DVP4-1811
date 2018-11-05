@@ -26,7 +26,7 @@ class NewAccountViewController: UIViewController {
         //create new account in firebase if user doesn't already exist
         Auth.auth().createUser(withEmail: usernameTextField.text!, password: passwordTextField.text!) { (result, error) in
             //segue to main tab if account creation is successful
-            if Auth.auth().currentUser != nil {
+            if error == nil {
                 self.performSegue(withIdentifier: "NewAccountToTab", sender: self)
             }
         }

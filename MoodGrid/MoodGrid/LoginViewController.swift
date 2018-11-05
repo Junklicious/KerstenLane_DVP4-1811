@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginTapped(_ sender: UIButton) {
         //firebase authentication
         Auth.auth().signIn(withEmail: usernameTextField.text!, password: passwordTextField.text!) { (result, error) in
-            if Auth.auth().currentUser != nil {
+            if error == nil {
                 //segue to main tab if sign in successful
                 self.performSegue(withIdentifier: "LoginToTab", sender: self)
             }
