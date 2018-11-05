@@ -264,12 +264,18 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onI-cR-CJ2">
                                 <rect key="frame" x="169" y="438" width="37" height="30"/>
                                 <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneTapped:" destination="Ww5-0a-jEt" eventType="touchUpInside" id="m9O-9f-EqM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cdr-J8-rIr">
                                 <rect key="frame" x="163.5" y="483" width="48" height="30"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" red="1" green="0.0" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <segue destination="MG1-nL-xhs" kind="unwind" unwindAction="unwindToLoginWithSegue:Sender:" id="WER-X4-ojW"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -302,10 +308,14 @@
                         <viewLayoutGuide key="safeArea" id="tjx-qx-Um4"/>
                     </view>
                     <connections>
+                        <outlet property="passwordTextField" destination="siq-2f-Lil" id="12m-kl-lWm"/>
+                        <outlet property="reTypeTextField" destination="c7i-K4-H5D" id="atB-af-IA8"/>
+                        <outlet property="usernameTextField" destination="2dH-CX-Mkn" id="bpE-sz-GHx"/>
                         <segue destination="Swq-Y2-Hmd" kind="show" identifier="NewAccountToTab" id="W4m-0Z-Dod"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gVO-NW-rAm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="MG1-nL-xhs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="124" y="-753"/>
         </scene>
@@ -388,6 +398,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ly2-iB-tbe"/>
+        <segue reference="W4m-0Z-Dod"/>
     </inferredMetricsTieBreakers>
 </document>

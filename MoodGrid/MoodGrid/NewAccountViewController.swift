@@ -7,16 +7,27 @@
 //
 
 import UIKit
+import Firebase
 
 class NewAccountViewController: UIViewController {
-
+    
+    //outlets
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var reTypeTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func doneTapped(_ sender: UIButton) {
+        //create new account in firebase if user doesn't already exist
+        
+    }
+    
+    
     /*
     // MARK: - Navigation
 

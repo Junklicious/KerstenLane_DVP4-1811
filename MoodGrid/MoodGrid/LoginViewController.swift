@@ -24,11 +24,8 @@ class LoginViewController: UIViewController {
     @IBAction func loginTapped(_ sender: UIButton) {
         //firebase authentication
         Auth.auth().signIn(withEmail: usernameTextField.text!, password: passwordTextField.text!) { (result, error) in
-            if let errorExists = error {
-                print(errorExists.localizedDescription)
-            }
-            if let results = result {
-                print(results.description)
+            if Auth.auth().currentUser != nil {
+                self.performSegue(withIdentifier: "LoginToTab", sender: self)
             }
         }
     }
@@ -38,14 +35,8 @@ class LoginViewController: UIViewController {
         performSegue(withIdentifier: "ToNewAccount", sender: self)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func unwindToLogin(segue: UIStoryboardSegue, Sender: Any?) {
+        //unwind to return from new account
     }
-    */
 
 }
