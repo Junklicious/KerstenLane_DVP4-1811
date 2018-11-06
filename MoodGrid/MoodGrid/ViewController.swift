@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -45,11 +46,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func downloadPicturesFromUnsplash() {
         //alamofire request
-        Alamofire.request("https://api.unsplash.com/photos?page=1?client_id=\(apiKey)").responseJSON { (response) in
+        Alamofire.request("https://api.unsplash.com/photos?page=1&client_id=\(apiKey)").responseJSON { (response) in
             print(response)
             
-            if let json = response.result.value {
-                
+            if let jsonObj = response.result.value {
+                let json = JSON(jsonObj)
             }
         }
     }
