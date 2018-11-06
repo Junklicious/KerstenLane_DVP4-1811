@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -15,6 +16,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     //variables
     var pictures = [String]()
+    let apiKey = "ac21996467c394e3c5e74768bfbb3de744913d53e81ec4ca425a7558c3ef3388"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +39,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         cell.pictureImageView.backgroundColor = UIColor.blue
         
         return cell
+    }
+    
+    //MARK: Download JSON from Unsplash API
+    
+    func downloadPicturesFromUnsplash() {
+        //alamofire request
+        Alamofire.request("https://api.unsplash.com/photos?page=1?client_id=\(apiKey)").responseJSON { (response) in
+            print(response)
+            
+            if let json = response.result.value {
+                
+            }
+        }
     }
 
 }
