@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -14,17 +16,47 @@ class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     
     //variables
+    var boards = [String: [PictureObject]]()
+    var ref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        //set referenct to database
+        ref = Database.database().reference()
+        
+    }
+    
+    @IBAction func addTapped(_ sender: UIBarButtonItem) {
+        //create alert for adding a new board
+        let alert = UIAlertController(title: "Add New Board", message: "Enter the name of the new board.", preferredStyle: .alert)
+        
+        //add text field to alert
+        alert.addTextField { (textField) in
+            textField.placeholder = "New Board Name"
+        }
+        
+        //ok button
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Add", comment: "Add action"), style: .default, handler: { (alertAction) in
+            //add new empty board to boards with name from text field
+            self.boards[alert.textFields![0].text!] = [PictureObject]()
+        }))
+        
+        //cancel button
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel action"), style: .destructive, handler: nil ))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func editTapped(_ sender: UIBarButtonItem) {
         
     }
     
     //MARK: TableViewDataSource Callbacks
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return boards.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

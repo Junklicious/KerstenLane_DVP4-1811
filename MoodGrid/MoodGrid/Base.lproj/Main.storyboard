@@ -160,7 +160,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yVY-Uc-crM"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Boards" id="RH8-vj-DAE"/>
+                    <navigationItem key="navigationItem" title="Boards" id="RH8-vj-DAE">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="2rS-Mu-pzc">
+                            <connections>
+                                <action selector="editTapped:" destination="NU1-5V-QnM" id="Pqe-0M-YKK"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ehj-kg-Qd3">
+                            <connections>
+                                <action selector="addTapped:" destination="NU1-5V-QnM" id="ThE-Zt-tIr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="aoY-cu-F30" id="GLa-Pd-4fY"/>
                     </connections>
