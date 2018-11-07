@@ -10,6 +10,7 @@
 		1E8717DF2190D09F00569DA6 /* PictureViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8717DD2190D09F00569DA6 /* PictureViewCell.swift */; };
 		1E8717E02190D09F00569DA6 /* PictureViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E8717DE2190D09F00569DA6 /* PictureViewCell.xib */; };
 		1E8717E221925EC700569DA6 /* PictureObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8717E121925EC700569DA6 /* PictureObject.swift */; };
+		1E8717E4219289BF00569DA6 /* BoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8717E3219289BF00569DA6 /* BoardTableViewCell.swift */; };
 		1EC8357721894F1900D97595 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8357621894F1900D97595 /* AppDelegate.swift */; };
 		1EC8357921894F1900D97595 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8357821894F1900D97595 /* ViewController.swift */; };
 		1EC8357C21894F1900D97595 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8357A21894F1900D97595 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		1E8717DD2190D09F00569DA6 /* PictureViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureViewCell.swift; sourceTree = "<group>"; };
 		1E8717DE2190D09F00569DA6 /* PictureViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PictureViewCell.xib; sourceTree = "<group>"; };
 		1E8717E121925EC700569DA6 /* PictureObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureObject.swift; sourceTree = "<group>"; };
+		1E8717E3219289BF00569DA6 /* BoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewCell.swift; sourceTree = "<group>"; };
 		1EC8357321894F1900D97595 /* MoodGrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodGrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC8357621894F1900D97595 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EC8357821894F1900D97595 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				1EC83590218B8C9900D97595 /* BoardsViewController.swift */,
 				1EC83592218B8CBD00D97595 /* SelectedBoardViewController.swift */,
 				1EC8357D21894F1C00D97595 /* Assets.xcassets */,
+				1E8717E3219289BF00569DA6 /* BoardTableViewCell.swift */,
 				1E8717E121925EC700569DA6 /* PictureObject.swift */,
 				1E8717DD2190D09F00569DA6 /* PictureViewCell.swift */,
 				1E8717DE2190D09F00569DA6 /* PictureViewCell.xib */,
@@ -247,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E8717E4219289BF00569DA6 /* BoardTableViewCell.swift in Sources */,
 				1EC8358F218B8C8C00D97595 /* SearchViewController.swift in Sources */,
 				1EC83591218B8C9900D97595 /* BoardsViewController.swift in Sources */,
 				1EC83589218B8B7C00D97595 /* LoginViewController.swift in Sources */,

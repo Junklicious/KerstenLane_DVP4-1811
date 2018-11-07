@@ -8,12 +8,33 @@
 
 import UIKit
 
-class BoardsViewController: UIViewController {
-
+class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    //outlets
+    @IBOutlet weak var tableView: UITableView!
+    
+    //variables
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+    }
+    
+    //MARK: TableViewDataSource Callbacks
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //instantiate tableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BoardCell", for: indexPath) as! BoardTableViewCell
+        
+        //configure cell
+        
+        
+        return cell
     }
     
 

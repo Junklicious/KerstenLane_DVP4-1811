@@ -99,22 +99,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aoY-cu-F30">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aoY-cu-F30">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BoardCell" id="t2F-18-WhJ">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BoardCell" rowHeight="80" id="t2F-18-WhJ" customClass="BoardTableViewCell" customModule="MoodGrid" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t2F-18-WhJ" id="n7x-oe-gZ2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jtw-oS-9Jz" userLabel="BackgroundImage">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                                </imageView>
+                                                <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gEi-TE-MIP" userLabel="Darken">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Board Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lf8-8N-PRN">
+                                                    <rect key="frame" x="19" y="29.5" width="337.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Lf8-8N-PRN" firstAttribute="width" secondItem="n7x-oe-gZ2" secondAttribute="width" multiplier="0.9" id="2dw-rD-cjr"/>
+                                                <constraint firstItem="gEi-TE-MIP" firstAttribute="height" secondItem="jtw-oS-9Jz" secondAttribute="height" id="3q3-Nn-D6C"/>
+                                                <constraint firstItem="jtw-oS-9Jz" firstAttribute="leading" secondItem="n7x-oe-gZ2" secondAttribute="leading" id="4xL-Zi-Lnu"/>
+                                                <constraint firstAttribute="trailing" secondItem="jtw-oS-9Jz" secondAttribute="trailing" id="ALk-9G-HHu"/>
+                                                <constraint firstItem="gEi-TE-MIP" firstAttribute="centerY" secondItem="jtw-oS-9Jz" secondAttribute="centerY" id="DEF-8i-Pf1"/>
+                                                <constraint firstItem="jtw-oS-9Jz" firstAttribute="top" secondItem="n7x-oe-gZ2" secondAttribute="top" id="PDy-U7-6CX"/>
+                                                <constraint firstItem="gEi-TE-MIP" firstAttribute="centerX" secondItem="jtw-oS-9Jz" secondAttribute="centerX" id="YhU-yJ-gOW"/>
+                                                <constraint firstItem="gEi-TE-MIP" firstAttribute="width" secondItem="jtw-oS-9Jz" secondAttribute="width" id="hKq-YI-27j"/>
+                                                <constraint firstItem="Lf8-8N-PRN" firstAttribute="centerX" secondItem="n7x-oe-gZ2" secondAttribute="centerX" id="nFq-GB-1vM"/>
+                                                <constraint firstAttribute="bottom" secondItem="jtw-oS-9Jz" secondAttribute="bottom" id="nK5-JA-RNS"/>
+                                                <constraint firstItem="Lf8-8N-PRN" firstAttribute="centerY" secondItem="n7x-oe-gZ2" secondAttribute="centerY" id="wk9-9K-6jX"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="backgroundImage" destination="jtw-oS-9Jz" id="k02-nf-wvi"/>
+                                            <outlet property="boardName" destination="Lf8-8N-PRN" id="u25-IO-2Sm"/>
                                             <segue destination="1xk-l4-E9d" kind="show" id="Xq4-0l-cDB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="NU1-5V-QnM" id="8CB-n7-D2X"/>
+                                    <outlet property="delegate" destination="NU1-5V-QnM" id="l3w-SU-I3X"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -127,10 +161,13 @@
                         <viewLayoutGuide key="safeArea" id="yVY-Uc-crM"/>
                     </view>
                     <navigationItem key="navigationItem" title="Boards" id="RH8-vj-DAE"/>
+                    <connections>
+                        <outlet property="tableView" destination="aoY-cu-F30" id="GLa-Pd-4fY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Nj-Nr-PKo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2233" y="1222"/>
+            <point key="canvasLocation" x="2232.8000000000002" y="1220.2398800599701"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="95m-QC-Iy2">
