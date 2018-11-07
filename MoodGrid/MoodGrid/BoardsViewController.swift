@@ -18,6 +18,7 @@ class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //variables
     var boards = [String: [PictureObject]]()
     var ref: DatabaseReference!
+    var okAlert: UIAlertAction!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,32 +26,48 @@ class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         //set referenct to database
         ref = Database.database().reference()
-        
     }
     
     @IBAction func addTapped(_ sender: UIBarButtonItem) {
         //create alert for adding a new board
         let alert = UIAlertController(title: "Add New Board", message: "Enter the name of the new board.", preferredStyle: .alert)
         
-        //add text field to alert
-        alert.addTextField { (textField) in
-            textField.placeholder = "New Board Name"
-        }
-        
-        //ok button
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Add", comment: "Add action"), style: .default, handler: { (alertAction) in
-            //add new empty board to boards with name from text field
-            self.boards[alert.textFields![0].text!] = [PictureObject]()
-        }))
-        
         //cancel button
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel action"), style: .destructive, handler: nil ))
+        
+        //ok button
+        okAlert = UIAlertAction(title: NSLocalizedString("Add", comment: "Add action"), style: .default, handler: { (alertAction) in
+            //add new empty board to boards with name from text field
+            self.boards[alert.textFields![0].text!] = [PictureObject]()
+            //reload tableView
+            self.tableView.reloadData()
+        })
+        alert.addAction(okAlert)
+        
+        //add text field to alert
+        alert.addTextField { (textField) in
+            //setup textField
+            textField.placeholder = "New Board Name"
+            //disable okAlert
+            self.okAlert.isEnabled = false
+            //add a function to trigger when text is changed
+            textField.addTarget(self, action: #selector(self.alertTextFieldDidChange(_:)), for: .editingChanged)
+        }
         
         self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func editTapped(_ sender: UIBarButtonItem) {
-        
+        //TODO: Add edit functionality
+    }
+    
+    @objc func alertTextFieldDidChange(_ textField: UITextField) {
+        //activate okAlert when text is entered
+        if textField.text != "" {
+            okAlert.isEnabled = true
+        } else {
+            okAlert.isEnabled = false
+        }
     }
     
     //MARK: TableViewDataSource Callbacks
@@ -64,7 +81,7 @@ class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "BoardCell", for: indexPath) as! BoardTableViewCell
         
         //configure cell
-        
+        cell.boardName.text = Array(boards.keys)[indexPath.row]
         
         return cell
     }
