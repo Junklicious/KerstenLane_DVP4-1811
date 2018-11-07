@@ -50,7 +50,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func downloadPicturesFromUnsplash() {
         //alamofire request
-        Alamofire.request("https://api.unsplash.com/photos?page=1&client_id=\(apiKey)").validate().responseJSON { response in
+        Alamofire.request("https://api.unsplash.com/photos?page=1&per_page=30&client_id=\(apiKey)").validate().responseJSON { response in
             //check if request was successful
             switch response.result {
             case .success(let value):
@@ -68,21 +68,22 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     
                     //grab image from url
                     var image: UIImage?
-                    //DispatchQueue.global().async {
-                        do {
-                            let data = try Data(contentsOf: urlActual)
-                            image = UIImage(data: data)
-                        } catch {
-                            //error
-                            print(error.localizedDescription)
-                        }
-                    //}
+                    do {
+                        let data = try Data(contentsOf: urlActual)
+                        image = UIImage(data: data)
+                    } catch {
+                        //error
+                        print(error.localizedDescription)
+                    }
+                    
+                    DispatchQueue.main.async {
+                        //reload collectionview to display new picture
+                        self.collectionView.reloadData()
+                    }
                     
                     //add new pictureObject to pictures
                     self.pictures.append(PictureObject(urls: url, image: image))
                 }
-                
-                self.collectionView.reloadData()
                 
                 //print json to debug
                 //print("JSON: \(json)")
