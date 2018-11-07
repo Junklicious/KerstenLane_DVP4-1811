@@ -12,16 +12,12 @@ class PictureObject {
     
     //MARK: Stored Properties
     
-    var urls: [String]
+    var urls: String
     var image: UIImage?
     
     //MARK: Functions
     
-    init() {
-        urls = [String]()
-    }
-    
-    init(urls: [String], image: UIImage?) {
+    init(urls: String, image: UIImage?) {
         self.urls = urls
         self.image = image
     }

@@ -12,18 +12,23 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PictureViewCell" customModule="MoodGrid" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WCz-Qf-6iS">
-                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WCz-Qf-6iS">
+                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                     </imageView>
                 </subviews>
             </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="WCz-Qf-6iS" secondAttribute="trailing" id="SZC-ha-ftQ"/>
+                <constraint firstItem="WCz-Qf-6iS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="WQG-Lh-LUd"/>
+                <constraint firstAttribute="bottom" secondItem="WCz-Qf-6iS" secondAttribute="bottom" id="dF3-2S-eGy"/>
+                <constraint firstItem="WCz-Qf-6iS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="uW9-Lo-mbZ"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
                 <outlet property="pictureImageView" destination="WCz-Qf-6iS" id="hb5-6R-Biu"/>

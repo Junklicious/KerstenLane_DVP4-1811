@@ -33,7 +33,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     //MARK: CollectionView Callbacks
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return pictures.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -41,7 +41,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PictureCell", for: indexPath) as! PictureViewCell
         
         //configure cell
-        cell.pictureImageView.backgroundColor = UIColor.blue
+        cell.pictureImageView.image = pictures[indexPath.row].image
         
         return cell
     }
@@ -59,14 +59,33 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 let json = JSON(value)
                 
                 //loop through resulting json
-                for (index, subJson): (String, JSON) in json {
+                for (_, subJson): (String, JSON) in json {
                     //create picture objects from the response and store them in pictures var
+                    //guard to grab url
+                    guard let url = subJson["urls"]["small"].string,
+                        let urlActual = URL(string: url)
+                        else{ continue }
                     
+                    //grab image from url
+                    var image: UIImage?
+                    //DispatchQueue.global().async {
+                        do {
+                            let data = try Data(contentsOf: urlActual)
+                            image = UIImage(data: data)
+                        } catch {
+                            //error
+                            print(error.localizedDescription)
+                        }
+                    //}
                     
+                    //add new pictureObject to pictures
+                    self.pictures.append(PictureObject(urls: url, image: image))
                 }
                 
+                self.collectionView.reloadData()
+                
                 //print json to debug
-                print("JSON: \(json)")
+                //print("JSON: \(json)")
             case .failure(let error):
                 //print error
                 print(error)
