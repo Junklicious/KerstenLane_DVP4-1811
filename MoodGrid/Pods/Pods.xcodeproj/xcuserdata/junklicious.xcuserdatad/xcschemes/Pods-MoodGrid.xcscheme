@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B66ADC7BB04D9CE0B38246FE070D0EB3"
+               BlueprintIdentifier = "04A26F9A4B00E8B4088051BC3936DBFC"
                BuildableName = "Pods_MoodGrid.framework"
                BlueprintName = "Pods-MoodGrid"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B66ADC7BB04D9CE0B38246FE070D0EB3"
+            BlueprintIdentifier = "04A26F9A4B00E8B4088051BC3936DBFC"
             BuildableName = "Pods_MoodGrid.framework"
             BlueprintName = "Pods-MoodGrid"
             ReferencedContainer = "container:Pods.xcodeproj">
