@@ -27,6 +27,11 @@ class LoginViewController: UIViewController {
             if error == nil {
                 //segue to main tab if sign in successful
                 self.performSegue(withIdentifier: "LoginToTab", sender: self)
+            } else {
+                //error message
+                let alert = UIAlertController(title: "Invalid Login", message: "An account with that email and password does not exist", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: nil ))
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }
@@ -34,6 +39,11 @@ class LoginViewController: UIViewController {
     @IBAction func signUpTapped(_ sender: UIButton) {
         //perform segue
         performSegue(withIdentifier: "ToNewAccount", sender: self)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //dismiss the keyboard on touchEnd
+        self.view.endEditing(true)
     }
     
     @IBAction func unwindToLogin(segue: UIStoryboardSegue, Sender: Any?) {
