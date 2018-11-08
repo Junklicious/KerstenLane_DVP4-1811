@@ -41,6 +41,14 @@ class NewAccountViewController: UIViewController {
             return
         }
         
+        if passwordTextField.text!.count < 6 {
+            let alert = UIAlertController(title: "Password Too Short", message: "Please ensure your password is atleast 6 characters long", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: nil ))
+            self.present(alert, animated: true, completion: nil)
+            //return from function
+            return
+        }
+        
         //email validation
         do {
             let regex = try NSRegularExpression(pattern: "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}")
@@ -74,15 +82,5 @@ class NewAccountViewController: UIViewController {
         //dismiss the keyboard on touchEnd
         self.view.endEditing(true)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

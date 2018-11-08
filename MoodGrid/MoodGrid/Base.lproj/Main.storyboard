@@ -67,10 +67,24 @@
                     <view key="view" contentMode="scaleToFill" id="HF0-N5-n8q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Search Results" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83E-kd-Dfn">
+                                <rect key="frame" x="114.5" y="330.5" width="146" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="83E-kd-Dfn" firstAttribute="centerX" secondItem="Lgp-2F-18F" secondAttribute="centerX" id="66W-8w-09M"/>
+                            <constraint firstItem="83E-kd-Dfn" firstAttribute="centerY" secondItem="Lgp-2F-18F" secondAttribute="centerY" id="kF4-uX-4Np"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Lgp-2F-18F"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Search" id="hTP-0m-yxD"/>
+                    <navigationItem key="navigationItem" title="Search" id="hTP-0m-yxD">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="0hH-Bv-ipk"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kP1-yT-IXc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -188,8 +202,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Za-ke-axs">
-                                <rect key="frame" x="112.5" y="70" width="150" height="133.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MoodGridLogo" translatesAutoresizingMaskIntoConstraints="NO" id="7Za-ke-axs">
+                                <rect key="frame" x="94" y="70" width="187.5" height="133.5"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mSe-3n-oeN">
                                 <rect key="frame" x="56.5" y="265.5" width="262.5" height="30"/>
@@ -201,7 +215,7 @@
                                 <rect key="frame" x="56.5" y="340.5" width="262.5" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rau-Tc-JOG">
                                 <rect key="frame" x="56.5" y="236.5" width="262.5" height="21"/>
@@ -237,7 +251,7 @@
                             <constraint firstItem="Yve-uC-UaG" firstAttribute="centerX" secondItem="qMz-uE-P2P" secondAttribute="centerX" id="74e-Qu-MKq"/>
                             <constraint firstItem="7Za-ke-axs" firstAttribute="height" secondItem="dt6-OP-la3" secondAttribute="height" multiplier="0.2" id="7k8-mq-IBb"/>
                             <constraint firstItem="P6g-mr-uR2" firstAttribute="centerX" secondItem="18B-WB-bqq" secondAttribute="centerX" id="DXL-kJ-Pco"/>
-                            <constraint firstItem="7Za-ke-axs" firstAttribute="width" secondItem="dt6-OP-la3" secondAttribute="width" multiplier="0.4" id="F2o-7M-h5N"/>
+                            <constraint firstItem="7Za-ke-axs" firstAttribute="width" secondItem="dt6-OP-la3" secondAttribute="width" multiplier="0.5" id="F2o-7M-h5N"/>
                             <constraint firstItem="7Za-ke-axs" firstAttribute="top" secondItem="18B-WB-bqq" secondAttribute="top" constant="50" id="La1-Ha-szT"/>
                             <constraint firstItem="mSe-3n-oeN" firstAttribute="centerX" secondItem="rau-Tc-JOG" secondAttribute="centerX" id="OXh-hp-dch"/>
                             <constraint firstItem="qMz-uE-P2P" firstAttribute="top" secondItem="mSe-3n-oeN" secondAttribute="bottom" constant="16" id="PIM-ra-na6"/>
@@ -284,7 +298,7 @@
                                 <rect key="frame" x="56.5" y="263" width="262.5" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fr-cR-bIQ">
                                 <rect key="frame" x="56.5" y="159" width="262.5" height="21"/>
@@ -302,7 +316,7 @@
                                 <rect key="frame" x="56.5" y="338" width="262.5" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Re-type Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHl-1L-rfY">
                                 <rect key="frame" x="56.5" y="309" width="262.5" height="21"/>
@@ -452,6 +466,9 @@
             <point key="canvasLocation" x="124" y="1220"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="MoodGridLogo" width="642" height="441"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="W4m-0Z-Dod"/>
     </inferredMetricsTieBreakers>
