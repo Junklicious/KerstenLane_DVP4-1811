@@ -244,7 +244,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.97999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="IEr-b2-5pc" firstAttribute="centerX" secondItem="18B-WB-bqq" secondAttribute="centerX" id="1j3-Ut-OVB"/>
                             <constraint firstItem="7Za-ke-axs" firstAttribute="centerX" secondItem="18B-WB-bqq" secondAttribute="centerX" id="3di-1q-Egl"/>
@@ -278,7 +278,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2TE-Us-4Wc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-815" y="-753"/>
+            <point key="canvasLocation" x="-719" y="-753"/>
         </scene>
         <!--New Account View Controller-->
         <scene sceneID="TX5-2T-8dQ">
@@ -347,7 +347,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.97999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="siq-2f-Lil" firstAttribute="centerX" secondItem="Fa4-Xx-F0Y" secondAttribute="centerX" id="8hd-qb-mvA"/>
                             <constraint firstItem="2dH-CX-Mkn" firstAttribute="top" secondItem="3fr-cR-bIQ" secondAttribute="bottom" constant="8" id="9h7-f7-08o"/>
@@ -427,11 +427,11 @@
             </objects>
             <point key="canvasLocation" x="1295" y="-237"/>
         </scene>
-        <!--Search-->
+        <!--Navigation Controller-->
         <scene sceneID="LmP-Ll-X43">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EX8-9a-sL0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" id="E4h-IH-oUq"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="E4h-IH-oUq"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="R8z-Dc-uca">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -470,6 +470,6 @@
         <image name="MoodGridLogo" width="642" height="441"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="W4m-0Z-Dod"/>
+        <segue reference="ly2-iB-tbe"/>
     </inferredMetricsTieBreakers>
 </document>
