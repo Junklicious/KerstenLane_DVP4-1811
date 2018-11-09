@@ -18,5 +18,4 @@
 pdf include in folder
 
 ### WakaTime:
-https://wakatime.com/@a4f01bbe-a6e1-480b-b5a8-bcded2d0dd97/projects/afbcvfrfue?start=2018-10-26&end=2018-11-01
-
+https://wakatime.com/@a4f01bbe-a6e1-480b-b5a8-bcded2d0dd97/projects/afbcvfrfue?start=2018-11-02&end=2018-11-08

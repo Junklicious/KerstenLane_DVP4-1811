@@ -39,6 +39,20 @@ class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         okAlert = UIAlertAction(title: NSLocalizedString("Add", comment: "Add action"), style: .default, handler: { (alertAction) in
             //add new empty board to boards with name from text field
             self.boards[alert.textFields![0].text!] = [PictureObject]()
+            
+            //add new board to firebase database under the users ID
+            self.ref.child("users").child(Auth.auth().currentUser!.uid).child("boards").childByAutoId().child("name").setValue(alert.textFields![0].text!)
+            
+            //test
+            self.ref.child("users").child(Auth.auth().currentUser!.uid).child("boards").observeSingleEvent(of: .value, with: { (snapshot) in
+                for child in snapshot.children {
+                    let dict = (child as! DataSnapshot).value as! NSDictionary
+                    print(dict["name"] as! String)
+                }
+            }, withCancel: { (error) in
+                print(error.localizedDescription)
+            })
+            
             //reload tableView
             self.tableView.reloadData()
         })
@@ -64,6 +78,13 @@ class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @objc func alertTextFieldDidChange(_ textField: UITextField) {
         //activate okAlert when text is entered
         if textField.text != "" {
+            //ensure entered text is not a duplicate of an already existing mood board
+            for name in Array(boards.keys) {
+                if textField.text?.lowercased() == name.lowercased() {
+                    okAlert.isEnabled = false
+                    return
+                }
+            }
             okAlert.isEnabled = true
         } else {
             okAlert.isEnabled = false
