@@ -8,16 +8,36 @@
 
 import UIKit
 
-class AddPictureViewController: UIViewController {
+class AddPictureViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    //outlets
+    @IBOutlet weak var tableView: UITableView!
+    
+    //variables
+    var picture: PictureObject!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
     @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK: UITableViewDataSource Callbacks
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BoardAddCell", for: indexPath)
+        
+        //configure cell
+        
+        
+        return cell
     }
     
     /*

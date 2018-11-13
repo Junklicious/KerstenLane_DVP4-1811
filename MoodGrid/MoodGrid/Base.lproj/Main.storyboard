@@ -133,15 +133,40 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelection="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hST-3f-S1D">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BoardAddCell" id="JXt-b9-13G">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JXt-b9-13G" id="Dkq-eU-4Di">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="bjs-Rr-K2u" id="05Y-T7-XxQ"/>
+                                    <outlet property="delegate" destination="bjs-Rr-K2u" id="UaQ-TX-gjx"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Xif-33-iXX" firstAttribute="bottom" secondItem="hST-3f-S1D" secondAttribute="bottom" id="7D3-lN-c3Z"/>
                             <constraint firstItem="DyR-Ie-ygI" firstAttribute="leading" secondItem="Xif-33-iXX" secondAttribute="leading" id="EJ3-Oj-v0T"/>
                             <constraint firstItem="DyR-Ie-ygI" firstAttribute="top" secondItem="Xif-33-iXX" secondAttribute="top" id="QjA-XM-uuh"/>
+                            <constraint firstItem="Xif-33-iXX" firstAttribute="trailing" secondItem="hST-3f-S1D" secondAttribute="trailing" id="Z5S-Jp-oZ8"/>
+                            <constraint firstItem="hST-3f-S1D" firstAttribute="top" secondItem="DyR-Ie-ygI" secondAttribute="bottom" id="lhu-c8-EWo"/>
+                            <constraint firstItem="hST-3f-S1D" firstAttribute="leading" secondItem="Xif-33-iXX" secondAttribute="leading" id="njl-4Q-JRI"/>
                             <constraint firstItem="DyR-Ie-ygI" firstAttribute="trailing" secondItem="Xif-33-iXX" secondAttribute="trailing" id="svj-NO-ZuW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xif-33-iXX"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="hST-3f-S1D" id="0Y6-GN-kvm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jwv-zg-Ohe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
