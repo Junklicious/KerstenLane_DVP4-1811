@@ -34,9 +34,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="115" height="115"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
-                                        <connections>
-                                            <segue destination="ZIF-mu-4Va" kind="presentation" id="R3S-rc-Dj2"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -57,6 +54,7 @@
                     <navigationItem key="navigationItem" title="Browse" id="2pC-X4-kAL"/>
                     <connections>
                         <outlet property="collectionView" destination="5uv-yA-nV9" id="BJZ-Ih-OT9"/>
+                        <segue destination="ZIF-mu-4Va" kind="presentation" identifier="BrowseToFullPicture" modalPresentationStyle="overFullScreen" id="UOk-L5-uvl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -67,7 +65,7 @@
         <scene sceneID="KMN-Bz-A6i">
             <objects>
                 <viewController id="ZIF-mu-4Va" customClass="FullPictureViewController" customModule="MoodGrid" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="EvY-LU-l6e">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="EvY-LU-l6e">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -80,7 +78,11 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem id="Sdb-lf-NiT">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="2fA-fl-uvH"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="2fA-fl-uvH">
+                                            <connections>
+                                                <action selector="xTapped:" destination="ZIF-mu-4Va" id="N8E-Uf-Lxc"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ElO-8k-rXB">
                                             <connections>
                                                 <segue destination="bjs-Rr-K2u" kind="presentation" id="IP3-UA-gsV"/>
@@ -102,6 +104,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GN7-jo-3Nv"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="A02-77-ROc" id="YpH-as-2KA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4bq-3H-Xwt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -114,7 +119,27 @@
                     <view key="view" contentMode="scaleToFill" id="0T1-kB-bWB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DyR-Ie-ygI">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Add To" id="gPD-t2-UkM">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Qne-OD-0LW">
+                                            <connections>
+                                                <action selector="cancelTapped:" destination="bjs-Rr-K2u" id="kKN-Qd-SF2"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="g5r-h1-XZ9"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DyR-Ie-ygI" firstAttribute="leading" secondItem="Xif-33-iXX" secondAttribute="leading" id="EJ3-Oj-v0T"/>
+                            <constraint firstItem="DyR-Ie-ygI" firstAttribute="top" secondItem="Xif-33-iXX" secondAttribute="top" id="QjA-XM-uuh"/>
+                            <constraint firstItem="DyR-Ie-ygI" firstAttribute="trailing" secondItem="Xif-33-iXX" secondAttribute="trailing" id="svj-NO-ZuW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Xif-33-iXX"/>
                     </view>
                 </viewController>

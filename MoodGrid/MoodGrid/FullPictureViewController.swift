@@ -9,14 +9,25 @@
 import UIKit
 
 class FullPictureViewController: UIViewController {
+    
+    //outlets
+    @IBOutlet weak var imageView: UIImageView!
+    
+    //variables
+    var picture: PictureObject!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        //display picture in imageView
+        imageView.image = picture.image
     }
     
-
+    @IBAction func xTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

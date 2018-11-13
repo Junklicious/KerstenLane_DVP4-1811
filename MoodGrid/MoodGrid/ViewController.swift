@@ -46,6 +46,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "BrowseToFullPicture", sender: self)
+    }
+    
+    //MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? FullPictureViewController {
+            destination.picture = pictures[collectionView.indexPathsForSelectedItems![0].row]
+        }
+    }
+    
     //MARK: Download JSON from Unsplash API
     
     func downloadPicturesFromUnsplash() {
