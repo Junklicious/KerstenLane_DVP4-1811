@@ -78,27 +78,26 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         let urlActual = URL(string: url)
                         else{ continue }
                     
-                    //grab image from url
-                    var image: UIImage?
-                    do {
-                        let data = try Data(contentsOf: urlActual)
-                        image = UIImage(data: data)
-                    } catch {
-                        //error
-                        print(error.localizedDescription)
+                    DispatchQueue.global().async {
+                        //grab image from url
+                        var image: UIImage?
+                        do {
+                            let data = try Data(contentsOf: urlActual)
+                            image = UIImage(data: data)
+                        } catch {
+                            //error
+                            print(error.localizedDescription)
+                        }
+                        
+                        //add new pictureObject to pictures
+                        self.pictures.append(PictureObject(urls: url, image: image))
+                        
+                        DispatchQueue.main.async {
+                            //reload collectionview to display new picture
+                            self.collectionView.reloadData()
+                        }
                     }
-                    
-                    DispatchQueue.main.async {
-                        //reload collectionview to display new picture
-                        self.collectionView.reloadData()
-                    }
-                    
-                    //add new pictureObject to pictures
-                    self.pictures.append(PictureObject(urls: url, image: image))
                 }
-                
-                //print json to debug
-                //print("JSON: \(json)")
             case .failure(let error):
                 //print error
                 print(error)
