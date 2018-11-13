@@ -53,9 +53,38 @@ class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     //reload table view
                     self.tableView.reloadData()
                 }
+                //fetch pictures in background thread
+                DispatchQueue.global().async {
+                    if let stringUrl = self.boards[boardName]?[0].urls {
+                        let image = self.getPictureFromUrl(stringUrl)
+                        self.boards[boardName]?[0].image = image
+                        //update UI in main thread
+                        DispatchQueue.main.async {
+                            //reload table view
+                            self.tableView.reloadData()
+                        }
+                    }
+                }
             }
         }
-        
+    }
+    
+    func getPictureFromUrl(_ urlString: String) -> UIImage? {
+        //optional binding to convert string to url
+        if let urlActual = URL(string: urlString) {
+            //grab image from url
+            var image: UIImage?
+            do {
+                let data = try Data(contentsOf: urlActual)
+                image = UIImage(data: data)
+                return image
+            } catch {
+                //error
+                print(error.localizedDescription)
+            }
+        }
+        //return nil if no image could be retrieved
+        return nil
     }
     
     @IBAction func addTapped(_ sender: UIBarButtonItem) {
@@ -133,6 +162,9 @@ class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         //configure cell
         cell.boardName.text = Array(boards.keys)[indexPath.row]
+        if let image = Array(boards.values)[indexPath.row][0].image {
+            cell.backgroundImage.image = image
+        }
         
         return cell
     }
