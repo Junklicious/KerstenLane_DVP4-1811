@@ -17,6 +17,7 @@ class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //variables
     var boards = [String: [PictureObject]]()
+    var boardIDs = [String: String]()
     var ref: DatabaseReference!
     var okAlert: UIAlertAction!
     
@@ -40,6 +41,7 @@ class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             for child in snapshot.children {
                 let dict = (child as! DataSnapshot).value as! NSDictionary
                 let boardName = dict["name"] as! String
+                self.boardIDs[boardName] = (child as! DataSnapshot).key
                 var pictureArray = [PictureObject]()
                 if let pictures = dict["pictures"] {
                     for item in Array((pictures as! NSDictionary).allValues) {
@@ -55,7 +57,9 @@ class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
                 //fetch pictures in background thread
                 DispatchQueue.global().async {
-                    if let stringUrl = self.boards[boardName]?[0].urls {
+                    guard self.boards[boardName]?.count != 0,
+                        let stringUrl = self.boards[boardName]?[0].urls
+                        else { return }
                         let image = self.getPictureFromUrl(stringUrl)
                         self.boards[boardName]?[0].image = image
                         //update UI in main thread
@@ -63,7 +67,7 @@ class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             //reload table view
                             self.tableView.reloadData()
                         }
-                    }
+                    
                 }
             }
         }
@@ -162,22 +166,27 @@ class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         //configure cell
         cell.boardName.text = Array(boards.keys)[indexPath.row]
-        if let image = Array(boards.values)[indexPath.row][0].image {
-            cell.backgroundImage.image = image
+        if Array(boards.values)[indexPath.row].count != 0 {
+            if let image = Array(boards.values)[indexPath.row][0].image {
+                cell.backgroundImage.image = image
+            }
         }
         
         return cell
     }
     
-
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        //optional bind destination
+        if let destination = segue.destination as? SelectedBoardViewController {
+            //send necessary info to selectedBoard View
+            let boardName = Array(boards.keys)[tableView.indexPathsForSelectedRows![0].row]
+            destination.boardName = boardName
+            destination.boardID = boardIDs[boardName]
+            destination.pictures = boards[boardName]!
+        }
     }
-    */
+
 
 }

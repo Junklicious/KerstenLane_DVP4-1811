@@ -8,11 +8,15 @@
 
 import UIKit
 
-class SelectedBoardViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class SelectedBoardViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     //outlets
     @IBOutlet weak var collectionView: UICollectionView!
     
+    //variables
+    var boardName: String!
+    var boardID: String!
+    var pictures = [PictureObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +24,42 @@ class SelectedBoardViewController: UIViewController, UICollectionViewDelegate, U
         
         //register xib
         collectionView.register(UINib(nibName: "PictureViewCell", bundle: nil), forCellWithReuseIdentifier: "PictureCell")
+        
+        //load in pictures
+        for picture in pictures {
+            if picture.image == nil {
+                DispatchQueue.global().async {
+                    picture.image = self.getPictureFromUrl(picture.urls)
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                }
+            }
+        }
+    }
+    
+    func getPictureFromUrl(_ urlString: String) -> UIImage? {
+        //optional binding to convert string to url
+        if let urlActual = URL(string: urlString) {
+            //grab image from url
+            var image: UIImage?
+            do {
+                let data = try Data(contentsOf: urlActual)
+                image = UIImage(data: data)
+                return image
+            } catch {
+                //error
+                print(error.localizedDescription)
+            }
+        }
+        //return nil if no image could be retrieved
+        return nil
     }
     
     //MARK: CollectionViewDataSource Callbacks
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return pictures.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -33,19 +67,13 @@ class SelectedBoardViewController: UIViewController, UICollectionViewDelegate, U
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PictureCell", for: indexPath) as! PictureViewCell
         
         //configure cell
-        //cell.pictureImageView.image = pictures[indexPath.row].image
+        cell.pictureImageView.image = pictures[indexPath.row].image
         
         return cell
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size = (self.view.frame.width - 20)/3
+        return CGSize(width: size, height: size)
     }
-    */
-
 }

@@ -70,11 +70,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A02-77-ROc">
-                                <rect key="frame" x="10" y="74" width="355" height="583"/>
+                                <rect key="frame" x="10" y="30" width="355" height="583"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xln-jQ-RvY">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem id="Sdb-lf-NiT">
@@ -94,13 +94,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="xln-jQ-RvY" firstAttribute="trailing" secondItem="GN7-jo-3Nv" secondAttribute="trailing" id="3E6-fq-szr"/>
-                            <constraint firstItem="GN7-jo-3Nv" firstAttribute="trailing" secondItem="A02-77-ROc" secondAttribute="trailing" constant="10" id="BvA-G8-c3w"/>
-                            <constraint firstItem="xln-jQ-RvY" firstAttribute="top" secondItem="GN7-jo-3Nv" secondAttribute="top" id="Jls-61-nSz"/>
-                            <constraint firstItem="A02-77-ROc" firstAttribute="leading" secondItem="GN7-jo-3Nv" secondAttribute="leading" constant="10" id="Qen-sL-Dcc"/>
-                            <constraint firstItem="xln-jQ-RvY" firstAttribute="leading" secondItem="GN7-jo-3Nv" secondAttribute="leading" id="SkY-XK-lIQ"/>
-                            <constraint firstItem="GN7-jo-3Nv" firstAttribute="bottom" secondItem="A02-77-ROc" secondAttribute="bottom" constant="10" id="uRN-PK-WNS"/>
-                            <constraint firstItem="A02-77-ROc" firstAttribute="top" secondItem="xln-jQ-RvY" secondAttribute="bottom" constant="10" id="wxl-vn-tev"/>
+                            <constraint firstItem="xln-jQ-RvY" firstAttribute="trailing" secondItem="GN7-jo-3Nv" secondAttribute="trailing" id="AVw-2s-pTA"/>
+                            <constraint firstItem="xln-jQ-RvY" firstAttribute="top" secondItem="A02-77-ROc" secondAttribute="bottom" constant="10" id="Edl-GH-fHE"/>
+                            <constraint firstItem="xln-jQ-RvY" firstAttribute="leading" secondItem="GN7-jo-3Nv" secondAttribute="leading" id="FuJ-Fk-oQj"/>
+                            <constraint firstItem="A02-77-ROc" firstAttribute="leading" secondItem="GN7-jo-3Nv" secondAttribute="leading" constant="10" id="W1l-93-143"/>
+                            <constraint firstItem="GN7-jo-3Nv" firstAttribute="trailing" secondItem="A02-77-ROc" secondAttribute="trailing" constant="10" id="sez-BH-EI1"/>
+                            <constraint firstItem="GN7-jo-3Nv" firstAttribute="bottom" secondItem="xln-jQ-RvY" secondAttribute="bottom" id="t4P-r7-HjR"/>
+                            <constraint firstItem="A02-77-ROc" firstAttribute="top" secondItem="GN7-jo-3Nv" secondAttribute="top" constant="10" id="xFN-CR-E9u"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GN7-jo-3Nv"/>
                     </view>

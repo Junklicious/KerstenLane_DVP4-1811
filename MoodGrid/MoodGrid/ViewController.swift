@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     //outlets
     @IBOutlet weak var collectionView: UICollectionView!
@@ -46,6 +46,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size = (self.view.frame.width - 20)/3
+        return CGSize(width: size, height: size)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         performSegue(withIdentifier: "BrowseToFullPicture", sender: self)
     }
@@ -73,12 +78,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 //loop through resulting json
                 for (_, subJson): (String, JSON) in json {
                     //create picture objects from the response and store them in pictures var
-                    //guard to grab url
-                    guard let url = subJson["urls"]["small"].string,
-                        let urlActual = URL(string: url)
-                        else{ continue }
-                    
+                    //place in background thread to not lockup application
                     DispatchQueue.global().async {
+                        //guard to grab url
+                        guard let url = subJson["urls"]["small"].string,
+                            let urlActual = URL(string: url)
+                            else{ return }
+                        
                         //grab image from url
                         var image: UIImage?
                         do {
