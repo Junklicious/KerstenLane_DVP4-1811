@@ -129,7 +129,11 @@
                                                 <action selector="cancelTapped:" destination="bjs-Rr-K2u" id="kKN-Qd-SF2"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="g5r-h1-XZ9"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="g5r-h1-XZ9">
+                                            <connections>
+                                                <action selector="doneTapped" destination="bjs-Rr-K2u" id="6bO-OI-0gv"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

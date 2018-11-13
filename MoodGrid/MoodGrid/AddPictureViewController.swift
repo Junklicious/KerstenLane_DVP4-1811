@@ -27,7 +27,10 @@ class AddPictureViewController: UIViewController, UITableViewDelegate, UITableVi
         //set referenct to database
         ref = Database.database().reference()
         
+        //pull boards to show user which boards they can add to
         pullBoards()
+        
+        tableView.isEditing = true
     }
     
     @IBAction func cancelTapped(_ sender: UIBarButtonItem) {
@@ -65,6 +68,23 @@ class AddPictureViewController: UIViewController, UITableViewDelegate, UITableVi
                     self.tableView.reloadData()
                 }
             }
+        }
+    }
+    
+    @IBAction func doneTapped() {
+        //add picture to selected databases
+        if let indexPaths = tableView.indexPathsForSelectedRows {
+            for index in indexPaths {
+                let name = Array(boards.keys)[index.row]
+                ref.child("users").child(Auth.auth().currentUser!.uid).child("boards").child(boards[name]!).child("pictures").childByAutoId().setValue(picture.urls)
+            }
+            //return to fullpicture view
+            dismiss(animated: true, completion: nil)
+        } else {
+            //no selection error
+            let alert = UIAlertController(title: "No Boards selected!", message: "Please select one or more boards to add the picture to.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: nil ))
+            self.present(alert, animated: true, completion: nil)
         }
         
     }

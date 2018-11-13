@@ -35,27 +35,6 @@ class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func pullBoards() {
         //pull boards from firebase
-        /*ref.child("users").child(Auth.auth().currentUser!.uid).child("boards").observeSingleEvent(of: .value, with: { (snapshot) in
-            for child in snapshot.children {
-                let dict = (child as! DataSnapshot).value as! NSDictionary
-                let boardName = dict["name"] as! String
-                var pictureArray = [PictureObject]()
-                if let pictures = dict["pictures"] {
-                    for item in Array((pictures as! NSDictionary).allValues) {
-                        let pictureUrl = item as! String
-                        pictureArray.append(PictureObject(urls: pictureUrl, image: nil))
-                    }
-                }
-                //set values to boards
-                self.boards[boardName] = pictureArray
-                DispatchQueue.main.async {
-                    //reload table view
-                    self.tableView.reloadData()
-                }
-            }
-        }, withCancel: { (error) in
-            print(error.localizedDescription)
-        })*/
         
         ref.child("users").child(Auth.auth().currentUser!.uid).child("boards").observe(.value) { (snapshot) in
             for child in snapshot.children {
