@@ -604,7 +604,7 @@
         <scene sceneID="Bpf-Cc-CIO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GKr-26-ZCh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Browse" id="wGF-JD-lbM"/>
+                    <tabBarItem key="tabBarItem" title="Browse" image="BrowseIcon" id="wGF-JD-lbM"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="llY-aj-qtM">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -642,7 +642,7 @@
         <scene sceneID="hFf-Xc-uxA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JxP-LP-aGJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Boards" id="aof-5B-Dj6"/>
+                    <tabBarItem key="tabBarItem" title="Boards" image="BoardsIcon" id="aof-5B-Dj6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MKm-L8-XDj">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -659,6 +659,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BoardsIcon" width="35" height="35"/>
+        <image name="BrowseIcon" width="35" height="35"/>
         <image name="MoodGridLogo" width="642" height="441"/>
     </resources>
     <inferredMetricsTieBreakers>
