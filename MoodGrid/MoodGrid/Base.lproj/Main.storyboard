@@ -24,11 +24,11 @@
                                     <size key="itemSize" width="115" height="115"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PrototypeCell" id="JPd-Vd-zdi">
-                                        <rect key="frame" x="5" y="0.0" width="115" height="115"/>
+                                        <rect key="frame" x="5" y="5" width="115" height="115"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="115" height="115"/>
@@ -190,17 +190,59 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="6iZ-se-cS2">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="mar-Ua-2cK" id="MKr-a9-jcd"/>
+                                </connections>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yNA-4D-s8B">
+                                <rect key="frame" x="0.0" y="120" width="375" height="498"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="dZm-RW-hgP">
+                                    <size key="itemSize" width="115" height="115"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NotUsed" id="mvy-Ll-7lb">
+                                        <rect key="frame" x="5" y="5" width="115" height="115"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="115" height="115"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="mar-Ua-2cK" id="hW4-IQ-zJD"/>
+                                    <outlet property="delegate" destination="mar-Ua-2cK" id="aCi-xp-uf6"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="yNA-4D-s8B" firstAttribute="top" secondItem="6iZ-se-cS2" secondAttribute="bottom" id="0Pa-Ae-SRd"/>
                             <constraint firstItem="83E-kd-Dfn" firstAttribute="centerX" secondItem="Lgp-2F-18F" secondAttribute="centerX" id="66W-8w-09M"/>
+                            <constraint firstItem="6iZ-se-cS2" firstAttribute="top" secondItem="Lgp-2F-18F" secondAttribute="top" id="Ovq-NT-aFd"/>
+                            <constraint firstItem="Lgp-2F-18F" firstAttribute="trailing" secondItem="yNA-4D-s8B" secondAttribute="trailing" id="ZXB-94-Wxx"/>
                             <constraint firstItem="83E-kd-Dfn" firstAttribute="centerY" secondItem="Lgp-2F-18F" secondAttribute="centerY" id="kF4-uX-4Np"/>
+                            <constraint firstItem="yNA-4D-s8B" firstAttribute="leading" secondItem="Lgp-2F-18F" secondAttribute="leading" id="rmQ-oU-0s8"/>
+                            <constraint firstItem="6iZ-se-cS2" firstAttribute="trailing" secondItem="Lgp-2F-18F" secondAttribute="trailing" id="v7r-20-S5d"/>
+                            <constraint firstItem="6iZ-se-cS2" firstAttribute="leading" secondItem="Lgp-2F-18F" secondAttribute="leading" id="vYR-34-gRu"/>
+                            <constraint firstItem="Lgp-2F-18F" firstAttribute="bottom" secondItem="yNA-4D-s8B" secondAttribute="bottom" id="zxO-Rd-jcq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Lgp-2F-18F"/>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="hTP-0m-yxD">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="0hH-Bv-ipk"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="yNA-4D-s8B" id="n4w-QR-vbB"/>
+                        <outlet property="searchBar" destination="6iZ-se-cS2" id="PXC-hX-OFG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kP1-yT-IXc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -221,11 +263,11 @@
                                     <size key="itemSize" width="115" height="115"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UnusedCell" id="I02-Mc-kAx">
-                                        <rect key="frame" x="5" y="0.0" width="115" height="115"/>
+                                        <rect key="frame" x="5" y="5" width="115" height="115"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="115" height="115"/>
