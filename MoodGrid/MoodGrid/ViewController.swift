@@ -52,6 +52,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //segue to full picture when picture is tapped in collectionView
         performSegue(withIdentifier: "BrowseToFullPicture", sender: self)
     }
     

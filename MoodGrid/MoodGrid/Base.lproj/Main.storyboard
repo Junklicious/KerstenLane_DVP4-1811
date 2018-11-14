@@ -110,7 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4bq-3H-Xwt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3527" y="68"/>
+            <point key="canvasLocation" x="3961" y="79"/>
         </scene>
         <!--Add Picture View Controller-->
         <scene sceneID="dlr-cb-7nw">
@@ -174,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jwv-zg-Ohe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4354" y="68"/>
+            <point key="canvasLocation" x="4788" y="79"/>
         </scene>
         <!--Search-->
         <scene sceneID="Rwr-5D-Ach">
@@ -247,10 +247,10 @@
             </objects>
             <point key="canvasLocation" x="2234" y="447"/>
         </scene>
-        <!--Selected Board View Controller-->
+        <!--SelectedBoard-->
         <scene sceneID="VKG-Ci-Q41">
             <objects>
-                <viewController id="1xk-l4-E9d" customClass="SelectedBoardViewController" customModule="MoodGrid" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="SelectedBoard" id="1xk-l4-E9d" customClass="SelectedBoardViewController" customModule="MoodGrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JPJ-Zq-br7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -289,8 +289,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="67r-EG-dtr"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Selected" id="DVY-bd-jSM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="HbK-6l-ALv"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="qgV-3N-TQE" id="fth-TR-gY6"/>
+                        <outlet property="navItem" destination="DVY-bd-jSM" id="xzz-pH-77W"/>
+                        <segue destination="ZIF-mu-4Va" kind="presentation" identifier="SelectedToFullPicture" modalPresentationStyle="overFullScreen" id="YBS-8U-Dcy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dre-Jr-HTQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -305,7 +310,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aoY-cu-F30">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aoY-cu-F30">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -659,12 +664,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BoardsIcon" width="35" height="35"/>
-        <image name="BrowseIcon" width="35" height="35"/>
+        <image name="BoardsIcon" width="30" height="30"/>
+        <image name="BrowseIcon" width="27" height="31"/>
         <image name="MoodGridLogo" width="642" height="441"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ly2-iB-tbe"/>
-        <segue reference="HJX-m5-7rm"/>
+        <segue reference="YBS-8U-Dcy"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,6 +12,7 @@ class SelectedBoardViewController: UIViewController, UICollectionViewDelegate, U
 
     //outlets
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var navItem: UINavigationItem!
     
     //variables
     var boardName: String!
@@ -24,6 +25,9 @@ class SelectedBoardViewController: UIViewController, UICollectionViewDelegate, U
         
         //register xib
         collectionView.register(UINib(nibName: "PictureViewCell", bundle: nil), forCellWithReuseIdentifier: "PictureCell")
+        
+        //make the board name the navigation bar title
+        navItem.title = boardName
         
         //load in pictures
         for picture in pictures {
@@ -75,5 +79,18 @@ class SelectedBoardViewController: UIViewController, UICollectionViewDelegate, U
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = (self.view.frame.width - 20)/3
         return CGSize(width: size, height: size)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //segue to full picture when picture is tapped in collectionView
+        performSegue(withIdentifier: "SelectedToFullPicture", sender: self)
+    }
+    
+    //MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? FullPictureViewController {
+            destination.picture = pictures[collectionView.indexPathsForSelectedItems![0].row]
+        }
     }
 }

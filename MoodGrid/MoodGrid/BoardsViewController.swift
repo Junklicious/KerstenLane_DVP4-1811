@@ -135,7 +135,47 @@ class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func editTapped(_ sender: UIBarButtonItem) {
-        //TODO: Add edit functionality
+        //change editing
+        tableView.setEditing(!tableView.isEditing, animated: true)
+        
+        if tableView.isEditing {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash,
+                                                               target: self,
+                                                               action: #selector (BoardsViewController.trashAllSelected))
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+                                                                target: self,
+                                                                action: #selector (BoardsViewController.addTapped(_:)))
+        }
+    }
+    
+    @objc func trashAllSelected() {
+        //create alert to show the user to confirm delete
+        let alert = UIAlertController(title: "Delete Items", message: "Are you sure you want to delete these items?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: "Delete action"), style: .destructive, handler: { _ in
+            //trash all the selected items
+            if var selectedIPs = self.tableView.indexPathsForSelectedRows {
+                
+                //sort in largest to smallest index as to remove from back to front
+                selectedIPs.sort { (a, b) -> Bool in
+                    a.row > b.row
+                }
+                
+                for indexPath in selectedIPs {
+                    //update the data
+                    let nameToDelete = Array(self.boards.keys)[indexPath.row]
+                    self.ref.child("users").child(Auth.auth().currentUser!.uid).child("boards").child(self.boardIDs[nameToDelete]!).removeValue()
+                    self.boards.removeValue(forKey: nameToDelete)
+                }
+                
+                //delete all the rows at one
+                self.tableView.deleteRows(at: selectedIPs, with: .left)
+                //reload data to update header
+                self.tableView.reloadData()
+            }
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel action"), style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @objc func alertTextFieldDidChange(_ textField: UITextField) {
@@ -187,6 +227,12 @@ class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             destination.pictures = boards[boardName]!
         }
     }
-
-
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if tableView.isEditing {
+            return false
+        } else {
+            return true
+        }
+    }
 }
