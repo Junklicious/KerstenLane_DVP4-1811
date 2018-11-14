@@ -22,6 +22,7 @@ class SelectedBoardViewController: UIViewController, UICollectionViewDelegate, U
     var pictures = [PictureObject]()
     var ref: DatabaseReference!
     var pictureToBeDeleted: String!
+    var okAlert: UIAlertAction!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,7 +83,44 @@ class SelectedBoardViewController: UIViewController, UICollectionViewDelegate, U
     }
     
     @IBAction func editTapped(_ sender: UIBarButtonItem) {
+        //create alert for adding a new board
+        let alert = UIAlertController(title: "Edit Board Name", message: "Enter the new name of the board.", preferredStyle: .alert)
         
+        //cancel button
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel action"), style: .destructive, handler: nil ))
+        
+        //ok button
+        okAlert = UIAlertAction(title: NSLocalizedString("Done", comment: "Done action"), style: .default, handler: { (alertAction) in
+            //add new empty board to boards with name from text field
+            
+            //add new board to firebase database under the users ID
+            self.ref.child("users").child(Auth.auth().currentUser!.uid).child("boards").child(self.boardID).child("name").setValue(alert.textFields![0].text!)
+            
+            //update name on navItem
+            self.navItem.title = alert.textFields![0].text!
+        })
+        alert.addAction(okAlert)
+        
+        //add text field to alert
+        alert.addTextField { (textField) in
+            //setup textField
+            textField.placeholder = "Board Name"
+            //disable okAlert
+            self.okAlert.isEnabled = false
+            //add a function to trigger when text is changed
+            textField.addTarget(self, action: #selector(self.alertTextFieldDidChange(_:)), for: .editingChanged)
+        }
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func alertTextFieldDidChange(_ textField: UITextField) {
+        //activate okAlert when text is entered
+        if textField.text != "" {
+            okAlert.isEnabled = true
+        } else {
+            okAlert.isEnabled = false
+        }
     }
     
     //MARK: CollectionViewDataSource Callbacks

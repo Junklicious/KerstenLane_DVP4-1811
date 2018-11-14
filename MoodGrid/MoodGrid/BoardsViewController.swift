@@ -27,17 +27,17 @@ class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         //set referenct to database
         ref = Database.database().reference()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        //get any boards for the user that exist already
+        
+        //pull data from database
         pullBoards()
     }
     
     func pullBoards() {
         //pull boards from firebase
-        
         ref.child("users").child(Auth.auth().currentUser!.uid).child("boards").observe(.value) { (snapshot) in
+            //clear current data
+            self.boards = [String: [PictureObject]]()
+            
             for child in snapshot.children {
                 let dict = (child as! DataSnapshot).value as! NSDictionary
                 let boardName = dict["name"] as! String
@@ -69,7 +69,6 @@ class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             //reload table view
                             self.tableView.reloadData()
                         }
-                    
                 }
             }
         }

@@ -298,15 +298,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="67r-EG-dtr"/>
                     </view>
-                    <navigationItem key="navigationItem" id="DVY-bd-jSM">
-                        <nil key="title"/>
-                        <textField key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Selected" textAlignment="natural" minimumFontSize="17" id="rZO-r4-xxv">
-                            <rect key="frame" x="150" y="11.5" width="75" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <nil key="textColor"/>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
+                    <navigationItem key="navigationItem" title="Selected" id="DVY-bd-jSM">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="HbK-6l-ALv">
                             <connections>
                                 <action selector="editTapped:" destination="1xk-l4-E9d" id="jIl-29-RN7"/>
