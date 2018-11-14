@@ -12,9 +12,12 @@ class FullPictureViewController: UIViewController {
     
     //outlets
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var trashButton: UIBarButtonItem!
     
     //variables
     var picture: PictureObject!
+    var trashEnabled = false
+    var boardName: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +25,19 @@ class FullPictureViewController: UIViewController {
         
         //display picture in imageView
         imageView.image = picture.image
+        
+        if !trashEnabled {
+            trashButton.tintColor = UIColor.clear
+            trashButton.isEnabled = false
+        }
     }
     
     @IBAction func xTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func trashTapped(_ sender: UIBarButtonItem) {
+        
     }
     
     // MARK: - Navigation
@@ -36,7 +48,10 @@ class FullPictureViewController: UIViewController {
             //send picture to AddPictureViewController
             destination.picture = picture
         }
+        
+        //if destination is selected board then pass picture info
+        if let destination = segue.destination as? SelectedBoardViewController {
+            destination.pictureToBeDeleted = picture.key
+        }
     }
- 
-
 }

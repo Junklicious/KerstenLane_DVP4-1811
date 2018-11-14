@@ -44,9 +44,11 @@ class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.boardIDs[boardName] = (child as! DataSnapshot).key
                 var pictureArray = [PictureObject]()
                 if let pictures = dict["pictures"] {
-                    for item in Array((pictures as! NSDictionary).allValues) {
+                    for (key, item) in zip(Array((pictures as! NSDictionary).allKeys), Array((pictures as! NSDictionary).allValues)) {
                         let pictureUrl = item as! String
-                        pictureArray.append(PictureObject(urls: pictureUrl, image: nil))
+                        let pictureObj = PictureObject(urls: pictureUrl, image: nil)
+                        pictureObj.key = key as? String
+                        pictureArray.append(pictureObj)
                     }
                 }
                 //set values to boards

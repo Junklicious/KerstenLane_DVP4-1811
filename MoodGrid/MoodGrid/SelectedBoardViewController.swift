@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class SelectedBoardViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
@@ -18,6 +20,8 @@ class SelectedBoardViewController: UIViewController, UICollectionViewDelegate, U
     var boardName: String!
     var boardID: String!
     var pictures = [PictureObject]()
+    var ref: DatabaseReference!
+    var pictureToBeDeleted: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +32,9 @@ class SelectedBoardViewController: UIViewController, UICollectionViewDelegate, U
         
         //make the board name the navigation bar title
         navItem.title = boardName
+        
+        //set database reference
+        ref = Database.database().reference()
         
         //load in pictures
         for picture in pictures {
@@ -58,6 +65,10 @@ class SelectedBoardViewController: UIViewController, UICollectionViewDelegate, U
         }
         //return nil if no image could be retrieved
         return nil
+    }
+    
+    @IBAction func editTapped(_ sender: UIBarButtonItem) {
+        
     }
     
     //MARK: CollectionViewDataSource Callbacks
@@ -91,6 +102,22 @@ class SelectedBoardViewController: UIViewController, UICollectionViewDelegate, U
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? FullPictureViewController {
             destination.picture = pictures[collectionView.indexPathsForSelectedItems![0].row]
+            destination.trashEnabled = true
+            destination.boardName = boardName
         }
+    }
+    
+    @IBAction func unwindToSelectedBoard(_ segue: UIStoryboardSegue, sender: Any?) {
+        //unwind called when delete button is tapped on FullPictureViewController
+        
+        //create alert to show the user to confirm delete
+        let alert = UIAlertController(title: "Delete Picture", message: "Are you sure you want to delete this picture from '\(boardName!)'?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: "Delete action"), style: .destructive, handler: { _ in
+            
+            //delete picture from firebase
+            self.ref.child("users").child(Auth.auth().currentUser!.uid).child("boards").child(self.boardID).child("pictures").child(self.pictureToBeDeleted).removeValue()
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel action"), style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }

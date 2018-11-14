@@ -70,45 +70,54 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A02-77-ROc">
-                                <rect key="frame" x="10" y="30" width="355" height="583"/>
+                                <rect key="frame" x="10" y="30" width="355" height="560.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xln-jQ-RvY">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQb-4I-Xhd">
+                                <rect key="frame" x="0.0" y="601" width="375" height="66"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 <items>
-                                    <navigationItem id="Sdb-lf-NiT">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="2fA-fl-uvH">
-                                            <connections>
-                                                <action selector="xTapped:" destination="ZIF-mu-4Va" id="N8E-Uf-Lxc"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ElO-8k-rXB">
-                                            <connections>
-                                                <segue destination="bjs-Rr-K2u" kind="presentation" id="IP3-UA-gsV"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <barButtonItem systemItem="stop" id="2fA-fl-uvH">
+                                        <connections>
+                                            <action selector="xTapped:" destination="ZIF-mu-4Va" id="N8E-Uf-Lxc"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="pwS-JD-x2y"/>
+                                    <barButtonItem systemItem="trash" id="oU7-Jf-ZG1">
+                                        <connections>
+                                            <action selector="trashTapped:" destination="ZIF-mu-4Va" id="0g4-jF-E87"/>
+                                            <segue destination="w8i-jI-PQ0" kind="unwind" identifier="unwindToSelectedBoard" unwindAction="unwindToSelectedBoard:sender:" id="Rq7-3k-PVv"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="1vh-NM-5UY"/>
+                                    <barButtonItem systemItem="add" id="ElO-8k-rXB">
+                                        <connections>
+                                            <segue destination="bjs-Rr-K2u" kind="presentation" id="IP3-UA-gsV"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
-                            </navigationBar>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="xln-jQ-RvY" firstAttribute="trailing" secondItem="GN7-jo-3Nv" secondAttribute="trailing" id="AVw-2s-pTA"/>
-                            <constraint firstItem="xln-jQ-RvY" firstAttribute="top" secondItem="A02-77-ROc" secondAttribute="bottom" constant="10" id="Edl-GH-fHE"/>
-                            <constraint firstItem="xln-jQ-RvY" firstAttribute="leading" secondItem="GN7-jo-3Nv" secondAttribute="leading" id="FuJ-Fk-oQj"/>
+                            <constraint firstItem="aQb-4I-Xhd" firstAttribute="top" secondItem="A02-77-ROc" secondAttribute="bottom" constant="10" id="CRl-dK-57c"/>
+                            <constraint firstItem="aQb-4I-Xhd" firstAttribute="bottom" secondItem="GN7-jo-3Nv" secondAttribute="bottom" id="NAo-Xv-T2R"/>
                             <constraint firstItem="A02-77-ROc" firstAttribute="leading" secondItem="GN7-jo-3Nv" secondAttribute="leading" constant="10" id="W1l-93-143"/>
+                            <constraint firstItem="aQb-4I-Xhd" firstAttribute="height" secondItem="EvY-LU-l6e" secondAttribute="height" multiplier="0.1" id="qQJ-B5-aQS"/>
                             <constraint firstItem="GN7-jo-3Nv" firstAttribute="trailing" secondItem="A02-77-ROc" secondAttribute="trailing" constant="10" id="sez-BH-EI1"/>
-                            <constraint firstItem="GN7-jo-3Nv" firstAttribute="bottom" secondItem="xln-jQ-RvY" secondAttribute="bottom" id="t4P-r7-HjR"/>
+                            <constraint firstItem="aQb-4I-Xhd" firstAttribute="trailing" secondItem="GN7-jo-3Nv" secondAttribute="trailing" id="tnp-AG-qGF"/>
+                            <constraint firstItem="aQb-4I-Xhd" firstAttribute="leading" secondItem="GN7-jo-3Nv" secondAttribute="leading" id="uXl-LX-pXN"/>
                             <constraint firstItem="A02-77-ROc" firstAttribute="top" secondItem="GN7-jo-3Nv" secondAttribute="top" constant="10" id="xFN-CR-E9u"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GN7-jo-3Nv"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="A02-77-ROc" id="YpH-as-2KA"/>
+                        <outlet property="trashButton" destination="oU7-Jf-ZG1" id="b3r-6Q-aCj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4bq-3H-Xwt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="w8i-jI-PQ0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3961" y="79"/>
         </scene>
@@ -289,8 +298,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="67r-EG-dtr"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Selected" id="DVY-bd-jSM">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="HbK-6l-ALv"/>
+                    <navigationItem key="navigationItem" id="DVY-bd-jSM">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Selected" textAlignment="natural" minimumFontSize="17" id="rZO-r4-xxv">
+                            <rect key="frame" x="150" y="11.5" width="75" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="HbK-6l-ALv">
+                            <connections>
+                                <action selector="editTapped:" destination="1xk-l4-E9d" id="jIl-29-RN7"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="qgV-3N-TQE" id="fth-TR-gY6"/>

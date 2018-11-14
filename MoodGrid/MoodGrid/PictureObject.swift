@@ -14,6 +14,7 @@ class PictureObject {
     
     var urls: String
     var image: UIImage?
+    var key: String?
     
     //MARK: Functions
     
