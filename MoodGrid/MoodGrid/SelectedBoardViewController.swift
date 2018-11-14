@@ -67,6 +67,20 @@ class SelectedBoardViewController: UIViewController, UICollectionViewDelegate, U
         return nil
     }
     
+    func deletePicture() {
+        //delete picture from firebase
+        self.ref.child("users").child(Auth.auth().currentUser!.uid).child("boards").child(self.boardID).child("pictures").child(self.pictureToBeDeleted).removeValue()
+        
+        for (index, pic) in self.pictures.enumerated() {
+            if pic.key == self.pictureToBeDeleted {
+                self.pictures.remove(at: index)
+            }
+        }
+        
+        //update collection view
+        self.collectionView.reloadData()
+    }
+    
     @IBAction func editTapped(_ sender: UIBarButtonItem) {
         
     }
@@ -109,15 +123,6 @@ class SelectedBoardViewController: UIViewController, UICollectionViewDelegate, U
     
     @IBAction func unwindToSelectedBoard(_ segue: UIStoryboardSegue, sender: Any?) {
         //unwind called when delete button is tapped on FullPictureViewController
-        
-        //create alert to show the user to confirm delete
-        let alert = UIAlertController(title: "Delete Picture", message: "Are you sure you want to delete this picture from '\(boardName!)'?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: "Delete action"), style: .destructive, handler: { _ in
-            
-            //delete picture from firebase
-            self.ref.child("users").child(Auth.auth().currentUser!.uid).child("boards").child(self.boardID).child("pictures").child(self.pictureToBeDeleted).removeValue()
-        }))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel action"), style: .cancel, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        deletePicture()
     }
 }

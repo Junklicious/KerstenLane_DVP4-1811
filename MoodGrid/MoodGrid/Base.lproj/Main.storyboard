@@ -74,7 +74,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQb-4I-Xhd">
-                                <rect key="frame" x="0.0" y="601" width="375" height="66"/>
+                                <rect key="frame" x="0.0" y="600.5" width="375" height="66.5"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 <items>
                                     <barButtonItem systemItem="stop" id="2fA-fl-uvH">
@@ -86,7 +86,6 @@
                                     <barButtonItem systemItem="trash" id="oU7-Jf-ZG1">
                                         <connections>
                                             <action selector="trashTapped:" destination="ZIF-mu-4Va" id="0g4-jF-E87"/>
-                                            <segue destination="w8i-jI-PQ0" kind="unwind" identifier="unwindToSelectedBoard" unwindAction="unwindToSelectedBoard:sender:" id="Rq7-3k-PVv"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="1vh-NM-5UY"/>
@@ -114,6 +113,7 @@
                     <connections>
                         <outlet property="imageView" destination="A02-77-ROc" id="YpH-as-2KA"/>
                         <outlet property="trashButton" destination="oU7-Jf-ZG1" id="b3r-6Q-aCj"/>
+                        <segue destination="w8i-jI-PQ0" kind="unwind" identifier="unwindToSelected" unwindAction="unwindToSelectedBoard:sender:" id="EJp-V6-VVa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4bq-3H-Xwt" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -37,7 +37,16 @@ class FullPictureViewController: UIViewController {
     }
     
     @IBAction func trashTapped(_ sender: UIBarButtonItem) {
-        
+        //create alert to show the user to confirm delete
+        let alert = UIAlertController(title: "Delete Picture", message: "Are you sure you want to delete this picture from '\(boardName!)'?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: "Delete action"), style: .destructive, handler: { _ in
+            
+            //unwind to selected
+            self.performSegue(withIdentifier: "unwindToSelected", sender: self)
+            
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel action"), style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Navigation
