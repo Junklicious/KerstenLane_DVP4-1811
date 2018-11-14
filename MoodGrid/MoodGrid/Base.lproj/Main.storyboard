@@ -236,12 +236,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Lgp-2F-18F"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Search" id="hTP-0m-yxD">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="0hH-Bv-ipk"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Search" id="hTP-0m-yxD"/>
                     <connections>
                         <outlet property="collectionView" destination="yNA-4D-s8B" id="n4w-QR-vbB"/>
                         <outlet property="searchBar" destination="6iZ-se-cS2" id="PXC-hX-OFG"/>
+                        <segue destination="ZIF-mu-4Va" kind="presentation" identifier="SearchToFullPicture" modalPresentationStyle="overFullScreen" id="HJX-m5-7rm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kP1-yT-IXc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -664,5 +663,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ly2-iB-tbe"/>
+        <segue reference="HJX-m5-7rm"/>
     </inferredMetricsTieBreakers>
 </document>

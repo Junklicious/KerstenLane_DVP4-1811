@@ -29,6 +29,13 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         //hide collectionView to show empty state
         collectionView.isHidden = true
+        
+        collectionView.keyboardDismissMode = .onDrag
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //dismiss the keyboard on touchEnd
+        searchBar.endEditing(true)
     }
     
     //MARK: CollectionViewDataSource Callbacks
@@ -60,6 +67,10 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         return CGSize(width: size, height: size)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "SearchToFullPicture", sender: self)
+    }
+    
     //MARK: SearchBarDelegate
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -67,6 +78,9 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         if searchBar.text != "" {
             downloadPicturesFromUnsplash(searchBar.text!)
         }
+        
+        //dismiss keyboard
+        searchBar.endEditing(true)
     }
     
     //MARK: API
@@ -114,6 +128,14 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
                 //print error
                 print(error)
             }
+        }
+    }
+    
+    //MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? FullPictureViewController {
+            destination.picture = pictures[collectionView.indexPathsForSelectedItems![0].row]
         }
     }
 
