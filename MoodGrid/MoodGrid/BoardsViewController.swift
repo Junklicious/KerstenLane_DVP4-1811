@@ -107,16 +107,6 @@ class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             //add new board to firebase database under the users ID
             self.ref.child("users").child(Auth.auth().currentUser!.uid).child("boards").childByAutoId().child("name").setValue(alert.textFields![0].text!)
             
-            //test
-            self.ref.child("users").child(Auth.auth().currentUser!.uid).child("boards").observeSingleEvent(of: .value, with: { (snapshot) in
-                for child in snapshot.children {
-                    let dict = (child as! DataSnapshot).value as! NSDictionary
-                    print(dict["name"] as! String)
-                }
-            }, withCancel: { (error) in
-                print(error.localizedDescription)
-            })
-            
             //reload tableView
             self.tableView.reloadData()
         })
@@ -210,6 +200,8 @@ class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if Array(boards.values)[indexPath.row].count != 0 {
             if let image = Array(boards.values)[indexPath.row][0].image {
                 cell.backgroundImage.image = image
+            } else {
+                cell.backgroundImage.image = nil
             }
         }
         
