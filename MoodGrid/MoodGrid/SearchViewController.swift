@@ -76,8 +76,11 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         pictures = [PictureObject]()
+        collectionView.reloadData()
         if searchBar.text != "" {
-            downloadPicturesFromUnsplash(searchBar.text!)
+            for i in 1...3 {
+                downloadPicturesFromUnsplash(searchBar.text!, page: i)
+            }
         }
         
         //dismiss keyboard
@@ -86,9 +89,9 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     //MARK: API
     
-    func downloadPicturesFromUnsplash(_ query: String) {
+    func downloadPicturesFromUnsplash(_ query: String, page: Int) {
         //alamofire request
-        Alamofire.request("https://api.unsplash.com/search/photos?page=1&per_page=30&client_id=\(apiKey)&query=\(query)").validate().responseJSON { response in
+        Alamofire.request("https://api.unsplash.com/search/photos?page=\(page)&per_page=30&client_id=\(apiKey)&query=\(query)").validate().responseJSON { response in
             //check if request was successful
             switch response.result {
             case .success(let value):

@@ -28,7 +28,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.register(UINib(nibName: "PictureViewCell", bundle: nil), forCellWithReuseIdentifier: "PictureCell")
         
         //grab pictures from API
-        downloadPicturesFromUnsplash()
+        for i in 1...3 {
+            downloadPicturesFromUnsplash(page: i)
+        }
     }
     
     @IBAction func signOutTapped(_ sender: UIBarButtonItem) {
@@ -82,9 +84,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     //MARK: Download JSON from Unsplash API
     
-    func downloadPicturesFromUnsplash() {
+    func downloadPicturesFromUnsplash(page: Int) {
         //alamofire request
-        Alamofire.request("https://api.unsplash.com/photos?page=1&per_page=30&client_id=\(apiKey)").validate().responseJSON { response in
+        Alamofire.request("https://api.unsplash.com/photos?page=\(page)&per_page=30&client_id=\(apiKey)").validate().responseJSON { response in
             //check if request was successful
             switch response.result {
             case .success(let value):

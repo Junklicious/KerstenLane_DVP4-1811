@@ -449,16 +449,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IEr-b2-5pc">
-                                <rect key="frame" x="168.5" y="440.5" width="38" height="30"/>
-                                <state key="normal" title="Login"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IEr-b2-5pc">
+                                <rect key="frame" x="112.5" y="440.5" width="150" height="45"/>
+                                <state key="normal" title="Login" backgroundImage="ButtonRed">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="loginTapped:" destination="Mmj-5i-lwK" eventType="touchUpInside" id="9ny-K9-eiu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6g-mr-uR2">
-                                <rect key="frame" x="161.5" y="485.5" width="52" height="30"/>
-                                <state key="normal" title="Sign up"/>
+                                <rect key="frame" x="112.5" y="500.5" width="150" height="45"/>
+                                <state key="normal" title="Sign up" backgroundImage="ButtonInverse">
+                                    <color key="titleColor" red="0.93333333333333335" green="0.39215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="signUpTapped:" destination="Mmj-5i-lwK" eventType="touchUpInside" id="pTY-0j-PSj"/>
                                 </connections>
@@ -552,16 +556,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onI-cR-CJ2">
-                                <rect key="frame" x="169" y="438" width="37" height="30"/>
-                                <state key="normal" title="Done"/>
+                                <rect key="frame" x="112.5" y="438" width="150" height="45"/>
+                                <state key="normal" title="Done" backgroundImage="ButtonRed">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="doneTapped:" destination="Ww5-0a-jEt" eventType="touchUpInside" id="m9O-9f-EqM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cdr-J8-rIr">
-                                <rect key="frame" x="163.5" y="483" width="48" height="30"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="112.5" y="498" width="150" height="45"/>
+                                <state key="normal" title="Cancel" backgroundImage="ButtonInverse">
+                                    <color key="titleColor" red="0.93333333333333335" green="0.39215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="MG1-nL-xhs" kind="unwind" unwindAction="unwindToLoginWithSegue:Sender:" id="WER-X4-ojW"/>
@@ -690,10 +696,12 @@
     <resources>
         <image name="BoardsIcon" width="30" height="30"/>
         <image name="BrowseIcon" width="27" height="31"/>
+        <image name="ButtonInverse" width="150" height="45"/>
+        <image name="ButtonRed" width="150" height="45"/>
         <image name="MoodGridLogo" width="642" height="441"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eYu-hI-rxG"/>
+        <segue reference="W4m-0Z-Dod"/>
         <segue reference="UOk-L5-uvl"/>
     </inferredMetricsTieBreakers>
 </document>
