@@ -19,12 +19,32 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        //immediately login if userdefaults for it exist
+        loginFromDefaults()
+    }
+    
+    func loginFromDefaults() {
+        guard let username = UserDefaults.standard.value(forKey: "username") as? String,
+            let password = UserDefaults.standard.value(forKey: "password") as? String
+            else { return }
+        
+        //firebase authentication
+        Auth.auth().signIn(withEmail: username, password: password) { (result, error) in
+            if error == nil {
+                //segue to main tab if sign in successful
+                self.performSegue(withIdentifier: "AutoLogin", sender: self)
+            }
+        }
     }
     
     @IBAction func loginTapped(_ sender: UIButton) {
         //firebase authentication
         Auth.auth().signIn(withEmail: usernameTextField.text!, password: passwordTextField.text!) { (result, error) in
             if error == nil {
+                //save user info to UserDefaults
+                UserDefaults.standard.setValue(self.usernameTextField.text!, forKey: "username")
+                UserDefaults.standard.setValue(self.passwordTextField.text!, forKey: "password")
+                
                 //segue to main tab if sign in successful
                 self.performSegue(withIdentifier: "LoginToTab", sender: self)
             } else {

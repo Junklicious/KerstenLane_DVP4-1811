@@ -69,6 +69,11 @@ class NewAccountViewController: UIViewController {
         Auth.auth().createUser(withEmail: usernameTextField.text!, password: passwordTextField.text!) { (result, error) in
             //segue to main tab if account creation is successful
             if error == nil {
+                //set UserDefaults
+                UserDefaults.standard.setValue(self.usernameTextField.text!, forKey: "username")
+                UserDefaults.standard.setValue(self.passwordTextField.text!, forKey: "password")
+                
+                //segue to browse
                 self.performSegue(withIdentifier: "NewAccountToTab", sender: self)
             } else {
                 let alert = UIAlertController(title: "Acount Already Exists", message: "An account with those credentials already exists.", preferredStyle: .alert)

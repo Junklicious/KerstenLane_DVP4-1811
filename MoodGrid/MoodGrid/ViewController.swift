@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Firebase
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -29,7 +30,22 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         //grab pictures from API
         downloadPicturesFromUnsplash()
     }
-
+    
+    @IBAction func signOutTapped(_ sender: UIBarButtonItem) {
+        //signOut
+        do {
+            try Auth.auth().signOut()
+            
+            //delete user default login
+            UserDefaults.standard.removeObject(forKey: "username")
+            UserDefaults.standard.removeObject(forKey: "password")
+            
+            performSegue(withIdentifier: "signOutUnwind", sender: self)
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
+    
     //MARK: CollectionView Callbacks
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
