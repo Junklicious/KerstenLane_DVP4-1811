@@ -17,8 +17,10 @@
 
 ### Known bugs:
 - Photos can sometimes load out of order when pulled from the Unsplash API due to asynchronous loading
-- New Boards sometimes inherit background photo from another board at random when there are no pictures in the new board
 - Boards can end up out of order due to a datatype issue (heavy code refactoring needed to fix)
+
+### Repository:
+https://github.com/Junklicious/KerstenLane_DVP4-1811
 
 ## Time Tracking:
 
@@ -26,4 +28,4 @@
 pdf include in folder
 
 ### WakaTime:
-https://wakatime.com/@a4f01bbe-a6e1-480b-b5a8-bcded2d0dd97/projects/afbcvfrfue?start=2018-11-02&end=2018-11-08
+https://wakatime.com/@a4f01bbe-a6e1-480b-b5a8-bcded2d0dd97/projects/afbcvfrfue?start=2018-10-17&end=2018-11-15

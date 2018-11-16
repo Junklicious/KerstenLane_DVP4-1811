@@ -94,11 +94,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 //creat a swiftyJson object
                 let json = JSON(value)
                 
+                //place in background thread to not lockup application
+                DispatchQueue.global().async {
+                    
                 //loop through resulting json
                 for (_, subJson): (String, JSON) in json {
                     //create picture objects from the response and store them in pictures var
-                    //place in background thread to not lockup application
-                    DispatchQueue.global().async {
+                    
                         //guard to grab url
                         guard let url = subJson["urls"]["small"].string,
                             let urlActual = URL(string: url)
