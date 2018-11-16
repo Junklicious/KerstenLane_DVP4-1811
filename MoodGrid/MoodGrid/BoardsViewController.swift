@@ -196,12 +196,11 @@ class BoardsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "BoardCell", for: indexPath) as! BoardTableViewCell
         
         //configure cell
+        cell.backgroundImage.image = nil
         cell.boardName.text = Array(boards.keys)[indexPath.row]
         if Array(boards.values)[indexPath.row].count != 0 {
             if let image = Array(boards.values)[indexPath.row][0].image {
                 cell.backgroundImage.image = image
-            } else {
-                cell.backgroundImage.image = nil
             }
         }
         

@@ -2,15 +2,23 @@
 
 ## Info for App:
 
-### Testing:
+### Running:
 - Open MoodGrid.xcworkspace
 - Run in iOS simulator on an iPhone (UI designed on iphone 8)
-- sign up with new credentials or you can login with Email: testaccount@test.com Password: 123456
+- sign up with new credentials or you can login with Email: test@email.com Password: testpw1
+- sign out from the browse page if you wish to switch accounts
 
-### current version:
-- Boards are not saved to user profile
-- Search function is not yet implemented
-- Browse CollectionView may have issues on different device sizes
+### Features:
+- Browse photos
+- Search photos
+- Create mood boards
+- Add photos to your collection
+- Account bound mood boards (anywhere you login your boards are there)
+
+### Known bugs:
+- Photos can sometimes load out of order when pulled from the Unsplash API due to asynchronous loading
+- New Boards sometimes inherit background photo from another board at random when there are no pictures in the new board
+- Boards can end up out of order due to a datatype issue (heavy code refactoring needed to fix)
 
 ## Time Tracking:
 
